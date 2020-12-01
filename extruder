@@ -1,0 +1,56 @@
+`https://all3dp.com/2/extruder-calibration-6-easy-steps-2/
+
+
+
+Extrude 100mm
+G1 E100 F100
+
+echo:  M92 X80.00 Y80.00 Z400.00 E382.14
+
+120 – [length from extruder to mark] = [actual length extruded]
+
+445x100 =44500
+
+[steps/mm value] x 100 = [steps taken]
+
+[steps taken] / [actual length extruded] = [accurate steps/mm value]
+
+
+Stock X1
+445
+
+
+M92 E###.#, 
+
+M92 E402.8
+^ Set new vaule
+M500 
+^ Save setting
+
+
+M503
+^ check settings
+
+
+Extrude 100mm
+
+G1 E100 F100
+
+0.0021797889964251
+
+
+c := current value in configuration.cfg
+m := measured left over filament
+d := desired mm
+n := new value for configuration.cfg
+
+((120 - m) / d) * c = n
+
+
+.975
+
+0.0021252942715145
+0.0021252942715145
+0.0020827883860842
+
+
